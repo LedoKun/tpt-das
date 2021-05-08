@@ -1,0 +1,11 @@
+# The Docker image to run your workspace in. Defaults to gitpod/workspace-full
+image: gitpod/workspace-mongodb
+# Command to start on workspace startup (optional)
+tasks:
+  - init: yarn
+    command: yarn build && mkdir -p /workspace/data && mongod --dbpath /workspace/data
+# Ports to expose on workspace startup (optional)
+ports:
+  - port: 3000
+    onOpen: open-preview
+
